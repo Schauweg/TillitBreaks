@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "tillitbreaks",
+  "version": "${version}",
+  "name": "Till it Breaks",
+  "description": "Displays the durability of all items with a durability using text on the item",
+  "authors": [
+    "Schauweg"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/tillitbreaks/icon.png",
+  "environment": "client",
+  "entrypoints": {},
+  "mixins": [
+    "tillitbreaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.0",
+    "fabric": "*",
+    "minecraft": "1.16.2"
+  }
+}
