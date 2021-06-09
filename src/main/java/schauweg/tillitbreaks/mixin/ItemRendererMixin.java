@@ -55,10 +55,12 @@ public abstract class ItemRendererMixin {
 
                 PlayerInventory inventory = player.getInventory();
                 int arrowCounter = 0;
+                boolean hasNormalArrows = false;
                 for (int i = 0; i < inventory.size(); i++) {
                     ItemStack is = inventory.getStack(i);
-                    if (is.getItem() == Items.ARROW){
+                    if (is.getItem() == Items.ARROW || is.getItem() == Items.SPECTRAL_ARROW || is.getItem() == Items.TIPPED_ARROW){
                         arrowCounter += is.getCount();
+                        if(is.getItem() == Items.ARROW) hasNormalArrows = true;
                     }
                 }
                 String totalArrows = String.valueOf(arrowCounter);
@@ -68,7 +70,7 @@ public abstract class ItemRendererMixin {
                     for (Map.Entry<Enchantment, Integer> entry : map.entrySet()) {
                         Enchantment enchantment = entry.getKey();
                         //Get enchantmentname for a specific level
-                        if (enchantment.equals(Enchantments.INFINITY)) {
+                        if (enchantment.equals(Enchantments.INFINITY) && hasNormalArrows) {
                             totalArrows = "∞";
                             break;
                         }

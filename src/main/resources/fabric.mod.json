@@ -7,7 +7,14 @@
   "authors": [
     "Schauweg"
   ],
-  "contact": {},
+  "contributors": [
+    "Madis0"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/till-it-breaks",
+    "sources": "https://github.com/Schauweg/TillitBreaks",
+    "issues": "https://github.com/Schauweg/TillitBreaks/issues"
+  },
   "license": "MIT",
   "icon": "assets/tillitbreaks/icon.png",
   "environment": "client",
@@ -18,6 +25,6 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17"
+    "minecraft": ">=1.17"
   }
 }
