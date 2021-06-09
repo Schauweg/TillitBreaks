@@ -57,7 +57,7 @@ public abstract class ItemRendererMixin {
                 int arrowCounter = 0;
                 for (int i = 0; i < inventory.size(); i++) {
                     ItemStack is = inventory.getStack(i);
-                    if (is.getItem() == Items.ARROW){
+                    if (is.getItem() == Items.ARROW || is.getItem() == Items.SPECTRAL_ARROW || is.getItem() == Items.TIPPED_ARROW){
                         arrowCounter += is.getCount();
                     }
                 }
