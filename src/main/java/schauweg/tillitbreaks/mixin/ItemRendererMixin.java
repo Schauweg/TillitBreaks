@@ -53,7 +53,7 @@ public abstract class ItemRendererMixin {
 
             if (stack.getItem() == Items.BOW || stack.getItem() == Items.CROSSBOW){
 
-                PlayerInventory inventory = player.inventory;
+                PlayerInventory inventory = player.getInventory();
                 int arrowCounter = 0;
                 for (int i = 0; i < inventory.size(); i++) {
                     ItemStack is = inventory.getStack(i);
