@@ -35,7 +35,7 @@ public abstract class ItemRendererMixin {
 
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
-        if (player.currentScreenHandler instanceof CreativeInventoryScreen.CreativeScreenHandler)
+        if (player == null || player.currentScreenHandler instanceof CreativeInventoryScreen.CreativeScreenHandler)
             return;
 
         float scale = config.getTextSize() / 100F * 0.5F;
@@ -43,16 +43,18 @@ public abstract class ItemRendererMixin {
         if (stack.isDamageable()) {
             MatrixStack matrixTextInfo = new MatrixStack();
             matrixTextInfo.push();
-            matrixTextInfo.translate(x, y, (double) (this.zOffset + 200.0F));
+            matrixTextInfo.translate(x, y, this.zOffset + 200.0F);
             matrixTextInfo.scale(scale, scale, 0F);
             int fontHeight = renderer.fontHeight;
 
             if (config.isShowDurabilityNumber()) {
-                String curDur = String.valueOf(stack.getMaxDamage() - stack.getDamage());
-                int textWidth = renderer.getWidth(curDur);
-                float barOffset = config.isShowDurabilityBar() ? 2.5F / scale : 0;
+                if (config.isShowDurabilityNumIfFull() && !stack.isDamaged() || stack.isDamaged()) {
+                    String curDur = String.valueOf(stack.getMaxDamage() - stack.getDamage());
+                    int textWidth = renderer.getWidth(curDur);
+                    float barOffset = config.isShowDurabilityBar() ? 2.5F / scale : 0;
 
-                renderer.draw(matrixTextInfo, curDur, 16 / scale - textWidth + (scale * 0.33F), 16 / scale - fontHeight - barOffset + scale, config.isColorDurabilityNumber() ? stack.getItemBarColor() : -1);
+                    renderer.draw(matrixTextInfo, curDur, 16 / scale - textWidth + (scale * 0.33F), 16 / scale - fontHeight - barOffset + scale, config.isColorDurabilityNumber() ? stack.getItemBarColor() : -1);
+                }
             }
 
             if (config.isShowArrowCount() && (stack.getItem() == Items.BOW || stack.getItem() == Items.CROSSBOW)) {
@@ -73,7 +75,6 @@ public abstract class ItemRendererMixin {
                     Map<Enchantment, Integer> map = EnchantmentHelper.get(stack);
                     for (Map.Entry<Enchantment, Integer> entry : map.entrySet()) {
                         Enchantment enchantment = entry.getKey();
-                        //Get enchantmentname for a specific level
                         if (enchantment.equals(Enchantments.INFINITY) && hasNormalArrows) {
                             totalArrows = "∞";
                             break;

@@ -2,6 +2,7 @@
   "tillitbreaks.config.menu": "Till it Breaks Config Menu",
   "tillitbreaks.config.general": "General",
   "tillitbreaks.config.option.alwaysshowbar": "Always enable the durability bar",
+  "tillitbreaks.config.option.shownumberwhenfull": "Show durability number when item is not damaged",
   "tillitbreaks.config.option.showbar": "Enable or disable the durability bar",
   "tillitbreaks.config.option.showdurablilitynumber": "Enable or disable the durability number",
   "tillitbreaks.config.option.colordurability": "Color the durability number depending on damage",

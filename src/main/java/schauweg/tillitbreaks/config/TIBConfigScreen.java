@@ -25,8 +25,15 @@ public class TIBConfigScreen {
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText(Main.MOD_ID + ".config.option.alwaysshowbar"), config.isShowDurabilityIfBarFull())
                 .setSaveConsumer(newValue -> config.setShowDurabilityIfBarFull(newValue))
                 .setDefaultValue(false)
-                .setYesNoTextSupplier(getYesNoSupplier("tillitbreaks.config.enabled", "tillitbreaks.config.disabled"))
+                .setYesNoTextSupplier(getYesNoSupplier(Main.MOD_ID + ".config.enabled", Main.MOD_ID + ".config.disabled"))
                 .build());
+
+        general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText(Main.MOD_ID + ".config.option.shownumberwhenfull"), config.isShowDurabilityNumIfFull())
+                .setSaveConsumer(newValue -> config.setShowDurabilityNumIfFull(newValue))
+                .setDefaultValue(true)
+                .setYesNoTextSupplier(getYesNoSupplier(Main.MOD_ID + ".config.enabled", Main.MOD_ID + ".config.disabled"))
+                .build()
+        );
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText(Main.MOD_ID + ".config.option.showbar"), config.isShowDurabilityBar())
                 .setSaveConsumer(newValue -> config.setShowDurabilityBar(newValue))

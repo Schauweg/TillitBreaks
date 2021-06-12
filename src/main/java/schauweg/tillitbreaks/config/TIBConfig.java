@@ -3,6 +3,7 @@ package schauweg.tillitbreaks.config;
 public class TIBConfig {
 
     private boolean showDurabilityIfBarFull = false;
+    private boolean showDurabilityNumIfFull = true;
     private boolean showDurabilityBar = true;
     private boolean showDurabilityNumber = true;
     private boolean colorDurabilityNumber = false;
@@ -15,6 +16,14 @@ public class TIBConfig {
 
     public void setShowDurabilityIfBarFull(boolean showDurabilityIfBarFull) {
         this.showDurabilityIfBarFull = showDurabilityIfBarFull;
+    }
+
+    public boolean isShowDurabilityNumIfFull() {
+        return showDurabilityNumIfFull;
+    }
+
+    public void setShowDurabilityNumIfFull(boolean showDurabilityNumIfFull) {
+        this.showDurabilityNumIfFull = showDurabilityNumIfFull;
     }
 
     public boolean isShowDurabilityBar() {
