@@ -18,7 +18,14 @@
   "license": "MIT",
   "icon": "assets/tillitbreaks/icon.png",
   "environment": "client",
-  "entrypoints": {},
+  "entrypoints": {
+    "client": [
+      "schauweg.tillitbreaks.Main"
+    ],
+    "modmenu": [
+      "schauweg.tillitbreaks.modmenu.TIBModMenuIntegration"
+    ]
+  },
   "mixins": [
     "tillitbreaks.mixins.json"
   ],
