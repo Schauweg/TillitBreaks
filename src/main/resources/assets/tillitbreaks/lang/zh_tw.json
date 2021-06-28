@@ -1,0 +1,13 @@
+{
+  "tillitbreaks.config.menu": "直到它壞去-配置選單",
+  "tillitbreaks.config.general": "一般",
+  "tillitbreaks.config.option.alwaysshowbar": "始終啟用耐久條",
+  "tillitbreaks.config.option.shownumberwhenfull": "當物品沒有損壞時顯示耐久度數值",
+  "tillitbreaks.config.option.showbar": "啟用或禁用耐久條",
+  "tillitbreaks.config.option.showdurablilitynumber": "啟用或禁用耐久度數值",
+  "tillitbreaks.config.option.colordurability": "根據損壞情況為耐久度數值著色",
+  "tillitbreaks.config.option.showarrowcount": "啟用或禁用箭矢計數器",
+  "tillitbreaks.config.option.textsize": "文字大小百分比",
+  "tillitbreaks.config.enabled": "已啟用",
+  "tillitbreaks.config.disabled": "已禁用"
+}
