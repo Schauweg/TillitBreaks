@@ -1,0 +1,13 @@
+{
+  "tillitbreaks.config.menu": "Till it Breaks (Kırılana Kadar) Ayar Menüsü",
+  "tillitbreaks.config.general": "Genel",
+  "tillitbreaks.config.option.alwaysshowbar": "Dayanıklılık çubuğunu her zaman göster",
+  "tillitbreaks.config.option.shownumberwhenfull": "Eşya hasar görmediği zaman dayanıklılık numarasını göster",
+  "tillitbreaks.config.option.showbar": "Dayanıklılık çubuğunu etkinleştir veya devre dışı bırak",
+  "tillitbreaks.config.option.showdurablilitynumber": "Dayanıklılık numarasını etkinleştir veya devre dışı bırak",
+  "tillitbreaks.config.option.colordurability": "Hasara göre dayanıklılık numarasını renklendir",
+  "tillitbreaks.config.option.showarrowcount": "Ok sayısını etkinleştir veya devre dışı bırak",
+  "tillitbreaks.config.option.textsize": "Yüzde olarak metin boyutu",
+  "tillitbreaks.config.enabled": "Etkin",
+  "tillitbreaks.config.disabled": "Devre Dışı"
+}
