@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'fabric-loom' version '1.1-SNAPSHOT'
     id 'maven-publish'
 
     id "com.modrinth.minotaur" version "2.+"
@@ -71,7 +71,6 @@ jar {
 }
 
 // configure the maven publication
-// configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -87,10 +86,7 @@ publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+
     }
 }
 
@@ -100,14 +96,15 @@ if (System.getenv().MODRINTH_TOKEN) modrinth {
     versionName = archivesBaseName
     versionNumber = "${project.mod_version}-${project.minecraft_version}"
     versionType = "beta"
+    changelog = CHANGELOG
     uploadFile = tasks.remapJar
-    gameVersions = [project.minecraft_version]
+    gameVersions = SUPPORTED_VERSIONS
     loaders = ["fabric"]
-    dependencies = [
-            new ModDependency("fabric-api", "required"),
-            new ModDependency("cloth-config", "embedded"),
-            new ModDependency("modmenu", "optional")
-    ]
+    dependencies {
+        required.project "fabric-api"
+        embedded.project "cloth-config"
+        optional.project "modmenu"
+    }
 }
 
 if (System.getenv().CURSEFORGE_API_KEY) curseforge {
@@ -126,7 +123,6 @@ if (System.getenv().CURSEFORGE_API_KEY) curseforge {
             relations {
                 requiredDependency "fabric-api"
                 embeddedLibrary "cloth-config"
-
                 optionalDependency 'modmenu'
             }
         }
