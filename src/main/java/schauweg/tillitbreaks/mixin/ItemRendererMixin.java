@@ -13,7 +13,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -25,11 +24,8 @@ import java.util.Map;
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
 
-    @Shadow
-    public float zOffset;
-
-    @Inject(method = "renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V", at = @At("TAIL"))
-    public void onRenderGuiItemOverlay(TextRenderer renderer, ItemStack stack, int x, int y, String countLabel, CallbackInfo ci) {
+    @Inject(method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V", at = @At("TAIL"))
+    public void onRenderGuiItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y, String countLabel, CallbackInfo ci) {
 
         TIBConfig config = TIBConfigManager.getConfig();
 
@@ -43,7 +39,8 @@ public abstract class ItemRendererMixin {
         if (stack.isDamageable()) {
             MatrixStack matrixTextInfo = new MatrixStack();
             matrixTextInfo.push();
-            matrixTextInfo.translate(x, y, this.zOffset + 200.0F);
+            matrixTextInfo.multiplyPositionMatrix(matrices.peek().getPositionMatrix());
+            matrixTextInfo.translate(x, y, 300.0F);
             matrixTextInfo.scale(scale, scale, 0F);
             int fontHeight = renderer.fontHeight;
 
